@@ -1,0 +1,3809 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nesrine Lamine — Portfolio Ingénieure DevOps &amp; Cloud</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f8f9fb;
+        --bg-panel: #ffffff;
+        --bg-sunken: #f3f5f8;
+        --border: #e0e4ea;
+        --border-bright: #cbd2db;
+        --text: #0f1419;
+        --text-dim: #525e73;
+        --text-faint: #7a8599;
+        --green: #0d9e6f;
+        --green-dark: #0a7a56;
+        --green-bg: #e8f7ef;
+        --amber: #c17c0f;
+        --amber-bg: #fce5c6;
+        --cyan: #0880a2;
+        --purple: #7c3aed;
+        --blue: #2563eb;
+        --radius: 12px;
+        --display: "Space Grotesk", sans-serif;
+        --body: "Inter", sans-serif;
+        --mono: "JetBrains Mono", monospace;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background:
+          radial-gradient(
+            circle at 20% 50%,
+            rgba(13, 158, 111, 0.12),
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(124, 58, 237, 0.08),
+            transparent 40%
+          ),
+          linear-gradient(135deg, #f8f9fb 0%, #f3f0f9 100%);
+        color: var(--text);
+        font-family: var(--body);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--green);
+        outline-offset: 3px;
+      }
+      ::selection {
+        background: var(--green);
+        color: #fff;
+      }
+
+      .wrap {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+
+      /* ---------- status ticker (dark strip = signature contrast) ---------- */
+      .ticker {
+        background: linear-gradient(90deg, #0f1419 0%, #1a1f2a 100%);
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.03em;
+        color: #8b94a8;
+        padding: 11px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .ticker .wrap {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+      }
+      .ticker .item {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        flex-shrink: 0;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #3ecf8e;
+        box-shadow: 0 0 6px #3ecf8e;
+        flex-shrink: 0;
+      }
+      .dot.amber {
+        background: #f2b84b;
+        box-shadow: 0 0 6px #f2b84b;
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .dot {
+          animation: pulse 2.4s ease-in-out infinite;
+        }
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.45;
+        }
+      }
+
+      /* Enhanced animations */
+      @keyframes slideInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes floatUp {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: -1000px 0;
+        }
+        100% {
+          background-position: 1000px 0;
+        }
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      @keyframes glow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(13, 158, 111, 0.3);
+        }
+        50% {
+          box-shadow: 0 0 40px rgba(13, 158, 111, 0.6);
+        }
+      }
+
+      /* ---------- nav ---------- */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(248, 249, 251, 0.88);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(224, 228, 234, 0.6);
+        box-shadow: 0 4px 20px rgba(15, 20, 25, 0.05);
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+      }
+      .logo {
+        font-family: var(--mono);
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.04em;
+        color: var(--text);
+        background: linear-gradient(135deg, var(--text), var(--green));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .logo .brk {
+        color: var(--green);
+        -webkit-text-fill-color: var(--green);
+      }
+      .navlinks {
+        display: flex;
+        gap: 30px;
+        font-size: 14px;
+        color: var(--text-dim);
+      }
+      .navlinks a {
+        transition: all 0.2s ease;
+        position: relative;
+      }
+      .navlinks a:hover {
+        color: var(--green);
+      }
+      .navlinks a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--green), var(--cyan));
+        transition: width 0.3s ease;
+      }
+      .navlinks a:hover::after {
+        width: 100%;
+      }
+      .navlinks .num {
+        color: var(--text-faint);
+        font-family: var(--mono);
+        font-size: 11px;
+        margin-right: 5px;
+      }
+
+      /* ---------- panel system ---------- */
+      .panel {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(224, 228, 234, 0.7);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(15, 20, 25, 0.08);
+        transition: all 0.3s ease;
+        animation: slideInUp 0.6s ease-out;
+      }
+      .panel:hover {
+        border-color: rgba(13, 158, 111, 0.3);
+        box-shadow: 0 20px 45px rgba(13, 158, 111, 0.12);
+      }
+      .panel-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 20px;
+        border-bottom: 1px solid var(--border);
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--text-dim);
+        background: linear-gradient(
+          90deg,
+          rgba(13, 158, 111, 0.03),
+          transparent
+        );
+        font-weight: 600;
+      }
+      .panel-head .dot {
+        width: 6px;
+        height: 6px;
+      }
+      .panel-body {
+        padding: 26px;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+      section.tight {
+        padding: 40px 0;
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        padding: 80px 0 40px;
+      }
+      .hero-eyebrow {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--green);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: linear-gradient(
+          135deg,
+          var(--green-bg),
+          rgba(13, 158, 111, 0.05)
+        );
+        width: fit-content;
+        padding: 8px 14px;
+        border-radius: 25px;
+        border: 1px solid rgba(13, 158, 111, 0.2);
+        animation: slideInDown 0.6s ease-out;
+      }
+      h1.hero-name {
+        font-family: var(--display);
+        font-size: clamp(42px, 7vw, 72px);
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+        background: linear-gradient(135deg, var(--text), var(--green));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: slideInUp 0.8s ease-out 0.1s both;
+      }
+      .hero-role {
+        font-family: var(--display);
+        font-size: clamp(20px, 2.8vw, 28px);
+        color: var(--text-dim);
+        font-weight: 500;
+        margin-bottom: 32px;
+        animation: slideInUp 0.8s ease-out 0.2s both;
+      }
+      .hero-desc {
+        max-width: 660px;
+        color: var(--text-dim);
+        font-size: 16px;
+        line-height: 1.7;
+        margin-bottom: 40px;
+        animation: slideInUp 0.8s ease-out 0.3s both;
+      }
+      .hero-desc strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+      .cta-row {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        animation: slideInUp 0.8s ease-out 0.4s both;
+      }
+      .btn {
+        font-family: var(--mono);
+        font-size: 13px;
+        font-weight: 600;
+        padding: 12px 22px;
+        border-radius: 10px;
+        border: 1px solid var(--border-bright);
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          border-color 0.18s ease;
+        letter-spacing: 0.02em;
+        box-shadow: 0 8px 18px rgba(20, 24, 31, 0.04);
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, #0d9e6f 0%, #0a7a56 100%);
+        color: #fff;
+        border-color: var(--green);
+        box-shadow: 0 12px 30px rgba(13, 158, 111, 0.25);
+      }
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #0a7a56 0%, #086246 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 16px 40px rgba(13, 158, 111, 0.35);
+      }
+      .btn-ghost {
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.8);
+      }
+      .btn-ghost:hover {
+        border-color: var(--green);
+        color: var(--green);
+        background: rgba(13, 158, 111, 0.05);
+        box-shadow: 0 12px 30px rgba(13, 158, 111, 0.15);
+      }
+
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 12px;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        overflow: visible;
+        margin-top: 50px;
+      }
+      .stat {
+        background: linear-gradient(
+          135deg,
+          rgba(13, 158, 111, 0.05),
+          rgba(124, 58, 237, 0.03)
+        );
+        padding: 24px;
+        border: 1px solid rgba(13, 158, 111, 0.15);
+        border-radius: 14px;
+        transition: all 0.3s ease;
+        animation: scaleIn 0.6s ease-out;
+      }
+      .stat:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(13, 158, 111, 0.1),
+          rgba(124, 58, 237, 0.08)
+        );
+        transform: translateY(-4px);
+        border-color: rgba(13, 158, 111, 0.3);
+        box-shadow: 0 12px 24px rgba(13, 158, 111, 0.15);
+      }
+      .stat-val {
+        font-family: var(--mono);
+        font-size: 32px;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--green), var(--cyan));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .stat-label {
+        font-size: 11px;
+        color: var(--text-faint);
+        margin-top: 5px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-family: var(--mono);
+      }
+      @media (max-width: 680px) {
+        .stat-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .sec-title-row {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
+        margin-bottom: 40px;
+      }
+      .sec-num {
+        font-family: var(--mono);
+        color: var(--green);
+        font-size: 14px;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          rgba(13, 158, 111, 0.1),
+          rgba(124, 58, 237, 0.05)
+        );
+        padding: 4px 10px;
+        border-radius: 8px;
+      }
+      h2.sec-title {
+        font-family: var(--display);
+        font-size: clamp(28px, 3.5vw, 36px);
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+      .sec-rule {
+        flex: 1;
+        height: 2px;
+        background: linear-gradient(90deg, var(--border), transparent);
+      }
+
+      /* ---------- project ---------- */
+      .project-panel {
+        margin-bottom: 32px;
+        transition:
+          transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+          box-shadow 0.3s ease;
+        animation: slideInUp 0.7s ease-out;
+      }
+      .project-panel:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 30px 60px rgba(13, 158, 111, 0.15);
+      }
+      .project-tag {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--amber);
+        background: linear-gradient(
+          135deg,
+          var(--amber-bg),
+          rgba(193, 124, 15, 0.08)
+        );
+        padding: 5px 12px;
+        border-radius: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-weight: 600;
+        border: 1px solid rgba(193, 124, 15, 0.2);
+      }
+      .project-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 26px;
+        align-items: center;
+      }
+      .chip {
+        font-family: var(--mono);
+        font-size: 12px;
+        padding: 6px 13px;
+        border-radius: 20px;
+        border: 1px solid rgba(224, 228, 234, 0.8);
+        color: var(--text-dim);
+        background: linear-gradient(
+          135deg,
+          rgba(13, 158, 111, 0.04),
+          rgba(124, 58, 237, 0.02)
+        );
+        transition: all 0.2s ease;
+      }
+      .chip:hover {
+        border-color: var(--green);
+        background: rgba(13, 158, 111, 0.1);
+        color: var(--green);
+      }
+      .project-lede {
+        font-size: 16px;
+        color: var(--text-dim);
+        max-width: 700px;
+        margin-bottom: 28px;
+      }
+      .project-lede strong {
+        color: var(--text);
+      }
+
+      .diagram {
+        background: linear-gradient(
+          135deg,
+          rgba(13, 158, 111, 0.03),
+          rgba(124, 58, 237, 0.03)
+        );
+        border: 1px solid rgba(224, 228, 234, 0.8);
+        border-radius: 14px;
+        padding: 40px 28px;
+        margin: 28px 0 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-x: auto;
+      }
+      .diagram svg {
+        width: 100%;
+        max-width: 640px;
+        height: auto;
+      }
+
+      .subhead {
+        font-family: var(--display);
+        font-size: 17px;
+        font-weight: 700;
+        margin: 32px 0 16px;
+        color: var(--text);
+        letter-spacing: -0.02em;
+      }
+      .subhead:first-child {
+        margin-top: 0;
+      }
+
+      .challenge {
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        gap: 16px;
+        padding: 18px 0;
+        border-bottom: 1px solid rgba(224, 228, 234, 0.5);
+        transition: all 0.2s ease;
+        animation: slideInUp 0.5s ease-out;
+      }
+      .challenge:nth-child(1) { animation-delay: 0.1s; }
+      .challenge:nth-child(2) { animation-delay: 0.2s; }
+      .challenge:nth-child(3) { animation-delay: 0.3s; }
+      .challenge:nth-child(n+4) { animation-delay: 0.4s; }
+      .challenge:hover {
+        background: rgba(13, 158, 111, 0.02);
+        padding-left: 12px;
+      }
+      .challenge:last-child {
+        border-bottom: none;
+      }
+      .challenge-mark {
+        font-family: var(--mono);
+        color: var(--amber);
+        font-size: 14px;
+        padding-top: 2px;
+        font-weight: 700;
+      }
+      .challenge-title {
+        font-weight: 700;
+        font-size: 15px;
+        margin-bottom: 6px;
+        color: var(--text);
+      }
+      .challenge-desc {
+        font-size: 14px;
+        color: var(--text-dim);
+        line-height: 1.5;
+      }
+
+      .stack-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 12px;
+        margin-top: 12px;
+      }
+      .stack-item {
+        font-family: var(--mono);
+        font-size: 12.5px;
+        color: var(--text-dim);
+        border: 1px solid rgba(224, 228, 234, 0.8);
+        border-radius: 8px;
+        padding: 10px 13px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: linear-gradient(
+          135deg,
+          rgba(13, 158, 111, 0.03),
+          rgba(124, 58, 237, 0.02)
+        );
+        transition: all 0.2s ease;
+      }
+      .stack-item:hover {
+        border-color: var(--green);
+        background: rgba(13, 158, 111, 0.08);
+        color: var(--green);
+        transform: translateY(-2px);
+      }
+      .stack-item .dot {
+        width: 5px;
+        height: 5px;
+        background: var(--cyan);
+        box-shadow: none;
+        border-radius: 50%;
+      }
+
+      .metric-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        overflow: visible;
+        margin-top: 28px;
+      }
+      .metric {
+        background: linear-gradient(
+          135deg,
+          rgba(13, 158, 111, 0.05),
+          rgba(124, 58, 237, 0.03)
+        );
+        padding: 20px;
+        text-align: center;
+        border: 1px solid rgba(13, 158, 111, 0.15);
+        border-radius: 12px;
+        transition: all 0.2s ease;
+        animation: scaleIn 0.5s ease-out;
+      }
+      .metric:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(13, 158, 111, 0.12),
+          rgba(124, 58, 237, 0.08)
+        );
+        transform: translateY(-4px);
+        border-color: rgba(13, 158, 111, 0.3);
+      }
+      .metric-val {
+        font-family: var(--mono);
+        font-size: 24px;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--amber), var(--green));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .metric-label {
+        font-size: 10px;
+        color: var(--text-faint);
+        margin-top: 6px;
+        font-family: var(--mono);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+      }
+      @media (max-width: 680px) {
+        .metric-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .team-note {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: linear-gradient(
+          135deg,
+          rgba(13, 158, 111, 0.05),
+          rgba(124, 58, 237, 0.03)
+        );
+        border: 1px solid rgba(13, 158, 111, 0.15);
+        border-radius: 12px;
+        padding: 16px 20px;
+        margin-top: 28px;
+        font-size: 13.5px;
+        color: var(--text-dim);
+        line-height: 1.6;
+        animation: slideInUp 0.6s ease-out;
+      }
+      .team-note .avatars {
+        display: flex;
+        flex-shrink: 0;
+      }
+      .avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--green), var(--cyan));
+        border: 3px solid var(--bg-panel);
+        margin-left: -10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--mono);
+        font-size: 10px;
+        color: #fff;
+        font-weight: 700;
+        box-shadow: 0 4px 12px rgba(13, 158, 111, 0.2);
+        animation: floatUp 3s ease-in-out infinite;
+      }
+      .avatar:first-child {
+        margin-left: 0;
+        animation-delay: 0s;
+      }
+      .avatar:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .avatar:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .avatar:nth-child(n + 4) {
+        animation-delay: 0.3s;
+      }
+      .avatar.me {
+        background: linear-gradient(135deg, var(--amber), #d97706);
+        box-shadow: 0 4px 12px rgba(193, 124, 15, 0.25);
+      }
+
+      /* ---------- screenshot placeholder ---------- */
+      .shot-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 28px;
+      }
+      .shot-slot {
+        border: 2px dashed rgba(224, 228, 234, 0.6);
+        border-radius: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: linear-gradient(
+          135deg,
+          rgba(248, 250, 251, 0.8),
+          rgba(243, 245, 248, 0.8)
+        );
+        color: var(--text-faint);
+        padding: 12px;
+        min-height: 260px;
+        overflow: hidden;
+        box-shadow: inset 0 2px 6px rgba(13, 158, 111, 0.05);
+        transition: all 0.2s ease;
+        animation: fadeIn 0.6s ease-out;
+      }
+      }
+      .shot-slot:hover {
+        border-color: rgba(13, 158, 111, 0.3);
+        background: linear-gradient(
+          135deg,
+          rgba(13, 158, 111, 0.02),
+          rgba(124, 58, 237, 0.02)
+        );
+      }
+      .shot-slot svg {
+        width: 28px;
+        height: 28px;
+        opacity: 0.4;
+      }
+      .shot-slot img {
+        display: block;
+        width: 100%;
+        max-height: 380px;
+        object-fit: contain;
+        background: #fff;
+        border-radius: 8px;
+        padding: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      .shot-slot span {
+        font-family: var(--mono);
+        font-size: 11px;
+        text-align: center;
+        padding: 0 12px 12px;
+        line-height: 1.6;
+        color: var(--text-faint);
+      }
+      @media (max-width: 680px) {
+        .shot-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 440px) {
+        .shot-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ---------- image gallery carousel ---------- */
+      .gallery-container {
+        position: relative;
+        width: 100%;
+        background: linear-gradient(135deg, rgba(248, 250, 251, 0.8), rgba(243, 245, 248, 0.8));
+        border: 2px dashed rgba(224, 228, 234, 0.6);
+        border-radius: 14px;
+        overflow: hidden;
+        margin-top: 28px;
+      }
+
+      .gallery-slides {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .gallery-slide {
+        display: none;
+        width: 100%;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      .gallery-slide.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 400px;
+      }
+
+      .gallery-slide img {
+        max-width: 100%;
+        max-height: 500px;
+        object-fit: contain;
+        background: #fff;
+        border-radius: 8px;
+        padding: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .gallery-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(13, 158, 111, 0.9);
+        color: white;
+        border: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        transition: all 0.3s ease;
+        z-index: 10;
+      }
+
+      .gallery-nav:hover {
+        background: rgba(13, 158, 111, 1);
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .gallery-prev {
+        left: 12px;
+      }
+
+      .gallery-next {
+        right: 12px;
+      }
+
+      .gallery-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 0;
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      .gallery-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(13, 158, 111, 0.3);
+        cursor: pointer;
+        border: none;
+        transition: all 0.3s ease;
+      }
+
+      .gallery-dot.active {
+        background: linear-gradient(135deg, var(--green), var(--cyan));
+        width: 28px;
+        border-radius: 5px;
+        box-shadow: 0 4px 12px rgba(13, 158, 111, 0.3);
+      }
+
+      .gallery-dot:hover {
+        background: rgba(13, 158, 111, 0.6);
+      }
+
+      .gallery-counter {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(13, 158, 111, 0.9);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-family: var(--mono);
+        font-size: 11px;
+        z-index: 10;
+      }
+
+      /* ---------- timeline ---------- */
+      .tl-item {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        gap: 28px;
+        padding: 26px 0;
+        border-bottom: 1px solid rgba(224, 228, 234, 0.5);
+        transition: all 0.2s ease;
+        animation: slideInUp 0.6s ease-out;
+      }
+      .tl-item:hover {
+        background: linear-gradient(
+          90deg,
+          rgba(13, 158, 111, 0.02),
+          transparent
+        );
+        padding-left: 12px;
+      }
+      .tl-item:last-child {
+        border-bottom: none;
+      }
+      .tl-date {
+        font-family: var(--mono);
+        font-size: 12.5px;
+        color: var(--text-faint);
+        padding-top: 4px;
+        font-weight: 500;
+      }
+      .tl-role {
+        font-weight: 700;
+        font-size: 16px;
+        font-family: var(--display);
+        margin-bottom: 5px;
+        background: linear-gradient(135deg, var(--text), var(--green));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .tl-org {
+        font-size: 13px;
+        color: var(--green);
+        font-family: var(--mono);
+        margin-bottom: 12px;
+        font-weight: 600;
+      }
+      .tl-desc {
+        font-size: 14px;
+        color: var(--text-dim);
+        line-height: 1.6;
+      }
+      .tl-desc li {
+        margin-left: 18px;
+        margin-bottom: 6px;
+      }
+      @media (max-width: 600px) {
+        .tl-item {
+          grid-template-columns: 1fr;
+          gap: 6px;
+        }
+      }
+
+      /* ---------- skills ---------- */
+      .skill-cols {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+      .skill-group-label {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--cyan);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 16px;
+        font-weight: 700;
+      }
+      .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .skill-pill {
+        font-size: 13px;
+        color: var(--text-dim);
+        border: 1px solid rgba(224, 228, 234, 0.8);
+        border-radius: 8px;
+        padding: 7px 13px;
+        background: linear-gradient(
+          135deg,
+          rgba(13, 158, 111, 0.03),
+          rgba(124, 58, 237, 0.02)
+        );
+        transition: all 0.2s ease;
+        animation: fadeIn 0.5s ease-out;
+      }
+      .skill-pill:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .skill-pill:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+      .skill-pill:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .skill-pill:nth-child(4) {
+        animation-delay: 0.25s;
+      }
+      .skill-pill:nth-child(5) {
+        animation-delay: 0.3s;
+      }
+      .skill-pill:nth-child(6) {
+        animation-delay: 0.35s;
+      }
+      .skill-pill:nth-child(n + 7) {
+        animation-delay: 0.4s;
+      }
+      .skill-pill:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(13, 158, 111, 0.1),
+          rgba(124, 58, 237, 0.08)
+        );
+        border-color: var(--green);
+        color: var(--green);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(13, 158, 111, 0.1);
+      }
+      @media (max-width: 720px) {
+        .skill-cols {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+
+      /* ---------- contact ---------- */
+      .contact-panel {
+        padding: 56px;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          rgba(13, 158, 111, 0.05),
+          rgba(124, 58, 237, 0.03)
+        );
+        border: 1px solid rgba(13, 158, 111, 0.15);
+        animation: scaleIn 0.7s ease-out;
+      }
+      .contact-panel h2 {
+        font-family: var(--display);
+        font-size: clamp(24px, 3vw, 32px);
+        margin-bottom: 14px;
+        background: linear-gradient(135deg, var(--text), var(--green));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .contact-panel p {
+        color: var(--text-dim);
+        max-width: 500px;
+        margin: 0 auto 32px;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .contact-links {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .placeholder-note {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--amber);
+        margin-top: 22px;
+      }
+
+      footer {
+        padding: 40px 0;
+        border-top: 1px solid rgba(224, 228, 234, 0.6);
+        background: linear-gradient(
+          180deg,
+          transparent,
+          rgba(13, 158, 111, 0.02)
+        );
+      }
+      footer .wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--text-faint);
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      @media (max-width: 600px) {
+        .navlinks {
+          display: none;
+        }
+        .panel-body {
+          padding: 20px;
+        }
+        .contact-panel {
+          padding: 32px 20px;
+        }
+      }
+
+      /* Smooth animations and transitions */
+      @media (prefers-reduced-motion: no-preference) {
+        * {
+          scroll-behavior: smooth;
+        }
+
+        .panel {
+          animation: fadeInUp 0.6s ease-out;
+        }
+
+        .project-panel {
+          animation: fadeInUp 0.6s ease-out;
+        }
+
+        .stat {
+          animation: fadeInUp 0.6s ease-out;
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Improved text selection */
+      ::selection {
+        background: linear-gradient(135deg, var(--green), var(--cyan));
+        color: #fff;
+      }
+
+      /* Smooth focus states */
+      *:focus-visible {
+        outline: 2px solid var(--green);
+        outline-offset: 4px;
+      }
+
+      /* Hero with profile photo */
+      .hero-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .hero-content {
+        order: 1;
+      }
+
+      .profile-photo {
+        order: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .profile-photo img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(13, 158, 111, 0.2);
+        border: 3px solid rgba(13, 158, 111, 0.15);
+        object-fit: cover;
+        animation: slideInUp 0.8s ease-out 0.2s both;
+      }
+
+      @media (max-width: 768px) {
+        .hero-layout {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .profile-photo {
+          order: -1;
+        }
+
+        .profile-photo img {
+          max-width: 280px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ticker">
+      <div class="wrap">
+        <span class="item"
+          ><span class="dot"></span>SPÉCIALITÉ&nbsp;: DEVOPS · CLOUD</span
+        >
+      </div>
+    </div>
+
+    <header>
+      <div class="wrap">
+        <nav>
+          <div class="logo">nesrine<span class="brk">.</span>lamine</div>
+          <div class="navlinks">
+            <a href="#profil"><span class="num">01</span>Profil</a>
+            <a href="#projets"><span class="num">02</span>Projets</a>
+            <a href="#experience"><span class="num">03</span>Expérience</a>
+            <a href="#formation"><span class="num">04</span>Formation</a>
+            <a href="#competences"><span class="num">05</span>Compétences</a>
+            <a href="#contact"><span class="num">06</span>Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <!-- HERO / PROFIL -->
+      <section class="hero" id="profil">
+        <div class="hero-layout">
+          <div class="hero-content">
+            <div class="hero-eyebrow">
+              <span class="dot"></span>Disponible pour un stage PFE — Janvier
+              2027
+            </div>
+            <h1 class="hero-name">Nesrine Lamine</h1>
+            <div class="hero-role">Élève‑ingénieure Cloud &amp; DevOps</div>
+            <p class="hero-desc">
+              Actuellement en <strong>5ème année, cycle ingénieur</strong>,
+              passionnée par les technologies cloud, l'automatisation. Je
+              conçois des plateformes d'infrastructure et des applications
+              complètes, de l'architecture cloud jusqu'à l'expérience
+              utilisateur. J'envisage de réaliser un stage de fin d'études à
+              partir de janvier 2027, avec l'objectif de mettre mes compétences
+              au service de projets innovants.
+            </p>
+            <div class="cta-row">
+              <a href="#projets" class="btn btn-primary">Voir mes projets →</a>
+              <a href="#contact" class="btn btn-ghost">Me contacter</a>
+            </div>
+
+            <div class="stat-grid">
+              <div class="stat">
+                <div class="stat-val">6</div>
+                <div class="stat-label">Projets phares</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-photo">
+            <img
+              src="Nesrine Lamine.png"
+              alt="Nesrine Lamine - Ingénieure DevOps & Cloud"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJETS -->
+      <section id="projets">
+        <div class="sec-title-row">
+          <span class="sec-num">02</span>
+          <h2 class="sec-title">Projets</h2>
+          <div class="sec-rule"></div>
+        </div>
+
+        <!-- PROJET 1 : SUPERVISION -->
+        <div class="panel project-panel">
+          <div class="panel-head">
+            <span class="dot"></span>projet_01.yml — stage · data center
+            carthage, tunisie telecom
+          </div>
+          <div class="panel-body">
+            <div class="project-meta">
+              <span class="project-tag">Solo</span>
+              <span class="chip">Prometheus</span>
+              <span class="chip">Grafana</span>
+              <span class="chip">Docker Compose</span>
+              <span class="chip">SNMP v3</span>
+              <span class="chip">Alertmanager</span>
+              <span class="chip">Debian 12</span>
+            </div>
+
+            <p class="project-lede">
+              Conception et déploiement, de zéro, d'une
+              <strong
+                >plateforme centralisée de supervision d'infrastructure</strong
+              >
+              couvrant serveurs Linux et équipements réseau. Architecture
+              entièrement conteneurisée, pensée pour évoluer d'un serveur unique
+              vers une flotte complète de serveurs et de routeurs.
+            </p>
+
+            <div class="subhead">Architecture</div>
+            <div class="diagram">
+              <svg
+                viewBox="0 0 620 210"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="18"
+                  y="70"
+                  width="170"
+                  height="70"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#1B9D68"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="103"
+                  y="98"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="13"
+                  font-weight="600"
+                >
+                  Plateforme de
+                </text>
+                <text
+                  x="103"
+                  y="116"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="13"
+                  font-weight="600"
+                >
+                  Supervision
+                </text>
+                <text
+                  x="103"
+                  y="132"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="9"
+                >
+                  Prometheus · Grafana
+                </text>
+
+                <rect
+                  x="420"
+                  y="18"
+                  width="170"
+                  height="60"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#CBD2DB"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="505"
+                  y="44"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="13"
+                  font-weight="600"
+                >
+                  Serveur
+                </text>
+                <text
+                  x="505"
+                  y="61"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="9"
+                >
+                  CPU · RAM · Disque
+                </text>
+
+                <rect
+                  x="420"
+                  y="130"
+                  width="170"
+                  height="60"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#CBD2DB"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="505"
+                  y="156"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="13"
+                  font-weight="600"
+                >
+                  Routeur
+                </text>
+                <text
+                  x="505"
+                  y="173"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="9"
+                >
+                  SNMPv3 · Interfaces
+                </text>
+
+                <path
+                  d="M188 95 L420 48"
+                  stroke="#1B9D68"
+                  stroke-width="1.3"
+                  fill="none"
+                />
+                <path
+                  d="M188 115 L420 160"
+                  stroke="#1B9D68"
+                  stroke-width="1.3"
+                  fill="none"
+                />
+                <circle cx="304" cy="71" r="2.3" fill="#1B9D68" />
+                <circle cx="304" cy="137" r="2.3" fill="#1B9D68" />
+                <text
+                  x="300"
+                  y="60"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="9"
+                >
+                  node_exporter
+                </text>
+                <text
+                  x="300"
+                  y="150"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="9"
+                >
+                  snmp / icmp
+                </text>
+              </svg>
+            </div>
+
+            <div class="subhead">Défis techniques résolus</div>
+            <div class="challenge">
+              <div class="challenge-mark">01</div>
+              <div>
+                <div class="challenge-title">
+                  Saturation disque bloquant l'installation
+                </div>
+                <div class="challenge-desc">
+                  Diagnostic d'un partitionnement LVM sous-dimensionné —
+                  redimensionnement des volumes logiques sans perte de données.
+                </div>
+              </div>
+            </div>
+            <div class="challenge">
+              <div class="challenge-mark">02</div>
+              <div>
+                <div class="challenge-title">
+                  Migration de format SNMP Exporter
+                </div>
+                <div class="challenge-desc">
+                  Résolution d'une incompatibilité liée au changement de schéma
+                  d'authentification (auth‑split) entre versions.
+                </div>
+              </div>
+            </div>
+            <div class="challenge">
+              <div class="challenge-mark">03</div>
+              <div>
+                <div class="challenge-title">
+                  Connectivité réseau multi‑segments
+                </div>
+                <div class="challenge-desc">
+                  Diagnostic de tables de routage sur une VM multi‑interfaces
+                  pour établir la connectivité SNMPv3.
+                </div>
+              </div>
+            </div>
+
+            <div class="subhead">Stack technique</div>
+            <div class="stack-grid">
+              <div class="stack-item"><span class="dot"></span>Prometheus</div>
+              <div class="stack-item"><span class="dot"></span>Grafana</div>
+              <div class="stack-item">
+                <span class="dot"></span>Docker / Compose
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>Node Exporter
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>SNMP Exporter
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>Blackbox Exporter
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>Alertmanager
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>Microsoft Teams API
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>Debian 12 / LVM
+              </div>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric">
+                <div class="metric-val">15+</div>
+                <div class="metric-label">Métriques exposées</div>
+              </div>
+              <div class="metric">
+                <div class="metric-val">4</div>
+                <div class="metric-label">Sections dashboard</div>
+              </div>
+              <div class="metric">
+                <div class="metric-val">30s</div>
+                <div class="metric-label">Fréquence de scrape</div>
+              </div>
+            </div>
+
+            <div class="subhead">Captures d'écran</div>
+            <div class="gallery-container">
+              <div class="gallery-slides" id="gallery-projets-01">
+                <div class="gallery-slide active">
+                  <img
+                    src="images dashboard/dashboard-01.png"
+                    alt="Dashboard Prometheus - Vue générale"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images dashboard/dashboard-02.png"
+                    alt="Dashboard Grafana - Métriques serveur"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images dashboard/dashboard-03.png"
+                    alt="Dashboard Grafana - Alertes réseau"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images dashboard/dashboard-04.png"
+                    alt="Dashboard Grafana - État des équipements"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images dashboard/preview.webp"
+                    alt="Preview - Plateforme de Supervision Prometheus et Grafana"
+                  />
+                </div>
+              </div>
+              <button
+                class="gallery-nav gallery-prev"
+                onclick="changeSlide(event, -1)"
+              >
+                ‹
+              </button>
+              <button
+                class="gallery-nav gallery-next"
+                onclick="changeSlide(event, 1)"
+              >
+                ›
+              </button>
+              <div class="gallery-counter">
+                <span id="slide-current">1</span>/<span id="slide-total"
+                  >5</span
+                >
+              </div>
+              <div class="gallery-dots">
+                <button
+                  class="gallery-dot active"
+                  onclick="goToSlide(event, 0)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 1)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 2)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 3)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 4)"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJET 2 : JOB MATCHING -->
+        <div class="panel project-panel">
+          <div class="panel-head">
+            <span class="dot amber"></span>projet_02.yml — projet académique ·
+            équipe de 6
+          </div>
+          <div class="panel-body">
+            <div class="project-meta">
+              <span
+                class="project-tag"
+                style="color: var(--cyan); background: #e5f3f7"
+                >Équipe · 6 membres</span
+              >
+              <span class="chip">OpenStack</span>
+              <span class="chip">Angular</span>
+              <span class="chip">Spring Boot</span>
+              <span class="chip">Machine Learning</span>
+              <span class="chip">Cloud Privé</span>
+            </div>
+
+            <p class="project-lede">
+              <strong>MatchyKhedma</strong> — plateforme de mise en relation
+              intelligente entre chercheurs d'emploi et recruteurs. Le moteur de
+              <strong>matching par Machine Learning</strong> confronte les
+              compétences d'un candidat aux offres disponibles, et inversement,
+              aide les recruteurs à identifier les profils les plus pertinents
+              pour un poste donné. Projet mené en équipe de 6, depuis la
+              conception de l'infrastructure cloud privée jusqu'au développement
+              applicatif complet.
+            </p>
+
+            <div class="team-note">
+              <div class="avatars">
+                <div class="avatar me">N</div>
+                <div class="avatar">·</div>
+                <div class="avatar">·</div>
+                <div class="avatar">·</div>
+                <div class="avatar">·</div>
+                <div class="avatar">·</div>
+              </div>
+              <span
+                >Projet collectif — 6 contributeurs. Mon rôle :
+                <em
+                  >participation à la mise en place de l'infrastructure cloud
+                  privé, au moteur de matching, et développement de mon module
+                  dédié à la gestion des entretiens sécurisés</em
+                ></span
+              >
+            </div>
+
+            <div class="subhead">Architecture du projet</div>
+            <div class="diagram">
+              <svg
+                viewBox="0 0 640 220"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="15"
+                  y="80"
+                  width="150"
+                  height="60"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#0E7C9C"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="90"
+                  y="106"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="12.5"
+                  font-weight="600"
+                >
+                  Angular
+                </text>
+                <text
+                  x="90"
+                  y="123"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8.5"
+                >
+                  Front-end
+                </text>
+
+                <rect
+                  x="245"
+                  y="80"
+                  width="150"
+                  height="60"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#1B9D68"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="320"
+                  y="106"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="12.5"
+                  font-weight="600"
+                >
+                  Spring Boot
+                </text>
+                <text
+                  x="320"
+                  y="123"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8.5"
+                >
+                  API + Logique métier
+                </text>
+
+                <rect
+                  x="245"
+                  y="10"
+                  width="150"
+                  height="55"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#B8710C"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="320"
+                  y="34"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="12"
+                  font-weight="600"
+                >
+                  Moteur ML
+                </text>
+                <text
+                  x="320"
+                  y="50"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8.5"
+                >
+                  Matching CV ↔ Offres
+                </text>
+
+                <rect
+                  x="475"
+                  y="80"
+                  width="150"
+                  height="60"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#CBD2DB"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="550"
+                  y="106"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="12.5"
+                  font-weight="600"
+                >
+                  OpenStack
+                </text>
+                <text
+                  x="550"
+                  y="123"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8.5"
+                >
+                  Cloud privé
+                </text>
+
+                <path
+                  d="M165 110 L245 110"
+                  stroke="#8B94A0"
+                  stroke-width="1.3"
+                />
+                <path d="M320 80 L320 65" stroke="#8B94A0" stroke-width="1.3" />
+                <path
+                  d="M395 110 L475 110"
+                  stroke="#8B94A0"
+                  stroke-width="1.3"
+                />
+                <text
+                  x="205"
+                  y="102"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8"
+                >
+                  REST
+                </text>
+                <text
+                  x="435"
+                  y="102"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8"
+                >
+                  déploiement
+                </text>
+              </svg>
+            </div>
+
+            <div class="subhead">Ce que couvre le projet</div>
+            <div class="challenge">
+              <div class="challenge-mark">01</div>
+              <div>
+                <div class="challenge-title">Infrastructure cloud privé</div>
+                <div class="challenge-desc">
+                  Mise en place d'un cloud privé avec OpenStack pour héberger
+                  l'ensemble des services applicatifs de la plateforme.
+                </div>
+              </div>
+            </div>
+            <div class="challenge">
+              <div class="challenge-mark">02</div>
+              <div>
+                <div class="challenge-title">Application web full-stack</div>
+                <div class="challenge-desc">
+                  Front-end Angular pour candidats et recruteurs, back-end
+                  Spring Boot exposant les API métier.
+                </div>
+              </div>
+            </div>
+            <div class="challenge">
+              <div class="challenge-mark">03</div>
+              <div>
+                <div class="challenge-title">
+                  Moteur de matching par Machine Learning
+                </div>
+                <div class="challenge-desc">
+                  Modèle de correspondance compétences ↔ offres d'emploi, dans
+                  les deux sens : recommandation d'offres aux candidats et de
+                  profils aux recruteurs.
+                </div>
+              </div>
+            </div>
+            <div class="challenge">
+              <div class="challenge-mark">04</div>
+              <div>
+                <div class="challenge-title">
+                  Module Gestion des entretiens sécurisés
+                </div>
+                <div class="challenge-desc">
+                  Développement de mon module dédié : planification et
+                  déroulement d'entretiens candidat-recruteur dans un espace
+                  sécurisé, avec contrôle d'accès et confidentialité des
+                  échanges.
+                </div>
+              </div>
+            </div>
+
+            <div class="subhead">Stack technique</div>
+            <div class="stack-grid">
+              <div class="stack-item"><span class="dot"></span>OpenStack</div>
+              <div class="stack-item"><span class="dot"></span>Angular</div>
+              <div class="stack-item"><span class="dot"></span>Spring Boot</div>
+              <div class="stack-item">
+                <span class="dot"></span>Machine Learning
+              </div>
+              <div class="stack-item"><span class="dot"></span>REST API</div>
+              <div class="stack-item">
+                <span class="dot"></span>Base de données
+              </div>
+            </div>
+
+            <div class="subhead">Captures d'écran</div>
+            <div class="gallery-container">
+              <div class="gallery-slides" id="gallery-projets-02">
+                <div class="gallery-slide active">
+                  <img
+                    src="images MatchyKhedma/Capture  2026-08-17 124536.png"
+                    alt="Page d'accueil"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images MatchyKhedma/Capture  2026-08-17 124559.png"
+                    alt="Profil candidat"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images MatchyKhedma/Capture  2026-08-17 124623.png"
+                    alt="Recherche offres"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images MatchyKhedma/Capture 2026-08-17 124644.png"
+                    alt="Matching"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images MatchyKhedma/Capture  2026-08-17 124705.png"
+                    alt="Espace recruteur"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images MatchyKhedma/Capture 2026-08-17 124721.png"
+                    alt="Entretiens"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images MatchyKhedma/Capture 2026-08-17 124742.png"
+                    alt="Dashboard"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images MatchyKhedma/Capture2026-08-17 124805.png"
+                    alt="Vue complete"
+                  />
+                </div>
+              </div>
+              <button
+                class="gallery-nav gallery-prev"
+                onclick="changeSlide(event, -1)"
+              >
+                ‹
+              </button>
+              <button
+                class="gallery-nav gallery-next"
+                onclick="changeSlide(event, 1)"
+              >
+                ›
+              </button>
+              <div class="gallery-counter">
+                <span id="slide-current">1</span>/<span id="slide-total"
+                  >8</span
+                >
+              </div>
+              <div class="gallery-dots">
+                <button
+                  class="gallery-dot active"
+                  onclick="goToSlide(event, 0)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 1)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 2)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 3)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 4)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 5)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 6)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 7)"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJET 3 : ML CHICAGO -->
+        <div class="panel project-panel">
+          <div class="panel-head">
+            <span
+              class="dot"
+              style="background: #0e7c9c; box-shadow: none"
+            ></span
+            >projet_03.yml — machine learning · data science
+          </div>
+          <div class="panel-body">
+            <div class="project-meta">
+              <span
+                class="project-tag"
+                style="color: var(--cyan); background: #e5f3f7"
+                >Data Science</span
+              >
+              <span class="chip">Python</span>
+              <span class="chip">Machine Learning</span>
+              <span class="chip">Google Colab</span>
+              <span class="chip">Data Visualization</span>
+            </div>
+
+            <p class="project-lede">
+              <strong
+                >Analyse et prédiction des crimes urbains à Chicago</strong
+              >
+              — étude d'un jeu de données réel de criminalité urbaine, avec
+              analyse exploratoire des tendances (zones, types d'infractions,
+              périodes) et construction de modèles de
+              <strong>Machine Learning</strong> pour prédire la probabilité et
+              la nature des incidents à partir de facteurs spatio-temporels.
+            </p>
+
+            <div class="subhead">Démarche</div>
+            <div class="challenge">
+              <div class="challenge-mark">01</div>
+              <div>
+                <div class="challenge-title">
+                  Analyse exploratoire des données (EDA)
+                </div>
+                <div class="challenge-desc">
+                  Nettoyage et exploration du jeu de données de criminalité de
+                  Chicago — identification des tendances par zone géographique,
+                  type de crime et période temporelle.
+                </div>
+              </div>
+            </div>
+            <div class="challenge">
+              <div class="challenge-mark">02</div>
+              <div>
+                <div class="challenge-title">Modélisation prédictive</div>
+                <div class="challenge-desc">
+                  Entraînement et comparaison de plusieurs modèles de
+                  classification (SVM, KNN, Decision Tree, Random Forest,
+                  XGBoost) pour prédire le type ou la probabilité d'incidents
+                  criminels selon les variables spatio-temporelles, ainsi que
+                  des modèles de régression (Régression linéaire, SVR, Random
+                  Forest, XGBoost) pour prédire le volume de crimes.
+                </div>
+              </div>
+            </div>
+            <div class="challenge">
+              <div class="challenge-mark">03</div>
+              <div>
+                <div class="challenge-title">Clustering des zones à risque</div>
+                <div class="challenge-desc">
+                  Réduction de dimensionnalité par PCA puis segmentation des
+                  zones géographiques par K-Means et DBSCAN afin d'identifier
+                  les profils et zones de criminalité les plus significatifs.
+                </div>
+              </div>
+            </div>
+            <div class="challenge">
+              <div class="challenge-mark">04</div>
+              <div>
+                <div class="challenge-title">Visualisation des résultats</div>
+                <div class="challenge-desc">
+                  Cartographie et représentation graphique des zones à risque et
+                  des tendances identifiées pour faciliter l'interprétation des
+                  résultats.
+                </div>
+              </div>
+            </div>
+
+            <div class="subhead">Stack technique</div>
+            <div class="stack-grid">
+              <div class="stack-item"><span class="dot"></span>Python</div>
+              <div class="stack-item">
+                <span class="dot"></span>Pandas / NumPy
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>Scikit-learn
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>Random Forest / XGBoost
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>SVM / SVR / KNN
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>K-Means / DBSCAN / PCA
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>Google Colab
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>Matplotlib / Seaborn
+              </div>
+            </div>
+
+            <div class="subhead">Captures d'écran</div>
+            <div class="gallery-container">
+              <div class="gallery-slides" id="gallery-projets-03">
+                <div class="gallery-slide active">
+                  <img
+                    src="images chicago/cap.png"
+                    alt="Carte des zones à risque"
+                  />
+                </div>
+                <div class="gallery-slide active">
+                  <img
+                    src="images chicago/Capture  2026-08-15 214202.png"
+                    alt="Carte des zones à risque"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images chicago/Capture  2026-08-15 214236.png"
+                    alt="Analyse exploratoire (EDA)"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images chicago/Capture 2026-08-15 214315.png"
+                    alt="Visualisation des performances du modèle"
+                  />
+                </div>
+              </div>
+              <button
+                class="gallery-nav gallery-prev"
+                onclick="changeSlide(event, -1)"
+              >
+                ‹
+              </button>
+              <button
+                class="gallery-nav gallery-next"
+                onclick="changeSlide(event, 1)"
+              >
+                ›
+              </button>
+              <div class="gallery-counter">
+                <span id="slide-current">1</span>/<span id="slide-total"
+                  >3</span
+                >
+              </div>
+              <div class="gallery-dots">
+                <button
+                  class="gallery-dot active"
+                  onclick="goToSlide(event, 0)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 1)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 2)"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJET 4 : AGRIPLANNER -->
+        <div class="panel project-panel">
+          <div class="panel-head">
+            <span
+              class="dot"
+              style="background: #0e7c9c; box-shadow: none"
+            ></span
+            >projet_04.yml — projet académique · équipe de 6
+          </div>
+          <div class="panel-body">
+            <div class="project-meta">
+              <span
+                class="project-tag"
+                style="color: var(--cyan); background: #e5f3f7"
+                >Équipe · 6 membres</span
+              >
+              <span class="chip">Symfony</span>
+              <span class="chip">JavaFX</span>
+              <span class="chip">API REST</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">UML / Merise</span>
+            </div>
+
+            <p class="project-lede">
+              <strong>AgriPlanner</strong> — plateforme de gestion et de vente
+              de produits agricoles, pensée pour centraliser l'offre (fruits,
+              légumes, céréales) et répondre aux problèmes concrets du secteur :
+              manque d'optimisation dans la gestion des stocks, traçabilité
+              insuffisante des produits et pertes liées à une mauvaise
+              conservation. Accessible via une
+              <strong>application web</strong> et une
+              <strong>application desktop</strong>, avec une architecture
+              orientée services derrière une API Gateway.
+            </p>
+
+            <div class="team-note">
+              <div class="avatars">
+                <div class="avatar me">N</div>
+                <div class="avatar">·</div>
+                <div class="avatar">·</div>
+                <div class="avatar">·</div>
+                <div class="avatar">·</div>
+                <div class="avatar">·</div>
+              </div>
+              <span
+                >Projet collectif — 6 contributeurs. Mon rôle :
+                <em
+                  >conception (modélisation UML) et développement du module
+                  Gestion des événements</em
+                ></span
+              >
+            </div>
+
+            <div class="subhead">Architecture</div>
+            <div class="diagram">
+              <svg
+                viewBox="0 0 660 260"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="10"
+                  y="55"
+                  width="140"
+                  height="50"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#CBD2DB"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="80"
+                  y="76"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="11.5"
+                  font-weight="600"
+                >
+                  App Web
+                </text>
+                <text
+                  x="80"
+                  y="91"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8"
+                >
+                  Symfony
+                </text>
+
+                <rect
+                  x="10"
+                  y="150"
+                  width="140"
+                  height="50"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#CBD2DB"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="80"
+                  y="171"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="11.5"
+                  font-weight="600"
+                >
+                  App Desktop
+                </text>
+                <text
+                  x="80"
+                  y="186"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8"
+                >
+                  JavaFX
+                </text>
+
+                <rect
+                  x="200"
+                  y="90"
+                  width="90"
+                  height="80"
+                  rx="10"
+                  fill="#0E7C9C"
+                  opacity=".1"
+                  stroke="#0E7C9C"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="245"
+                  y="126"
+                  text-anchor="middle"
+                  fill="#0E7C9C"
+                  font-family="Space Grotesk"
+                  font-size="12"
+                  font-weight="700"
+                >
+                  API
+                </text>
+                <text
+                  x="245"
+                  y="141"
+                  text-anchor="middle"
+                  fill="#0E7C9C"
+                  font-family="Space Grotesk"
+                  font-size="12"
+                  font-weight="700"
+                >
+                  GATEWAY
+                </text>
+
+                <rect
+                  x="340"
+                  y="20"
+                  width="130"
+                  height="42"
+                  rx="7"
+                  fill="#FFFFFF"
+                  stroke="#1B9D68"
+                  stroke-width="1.3"
+                />
+                <text
+                  x="405"
+                  y="45"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="JetBrains Mono"
+                  font-size="9.5"
+                >
+                  Utilisateurs
+                </text>
+                <rect
+                  x="340"
+                  y="72"
+                  width="130"
+                  height="42"
+                  rx="7"
+                  fill="#FFFFFF"
+                  stroke="#1B9D68"
+                  stroke-width="1.3"
+                />
+                <text
+                  x="405"
+                  y="97"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="JetBrains Mono"
+                  font-size="9.5"
+                >
+                  Produits &amp; Catégories
+                </text>
+                <rect
+                  x="340"
+                  y="124"
+                  width="130"
+                  height="42"
+                  rx="7"
+                  fill="#FFFFFF"
+                  stroke="#1B9D68"
+                  stroke-width="1.3"
+                />
+                <text
+                  x="405"
+                  y="149"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="JetBrains Mono"
+                  font-size="9.5"
+                >
+                  Stock
+                </text>
+                <rect
+                  x="340"
+                  y="176"
+                  width="130"
+                  height="42"
+                  rx="7"
+                  fill="#FFFFFF"
+                  stroke="#1B9D68"
+                  stroke-width="1.3"
+                />
+                <text
+                  x="405"
+                  y="201"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="JetBrains Mono"
+                  font-size="9.5"
+                >
+                  Réclamations
+                </text>
+
+                <rect
+                  x="500"
+                  y="46"
+                  width="130"
+                  height="42"
+                  rx="7"
+                  fill="#FFFFFF"
+                  stroke="#B8710C"
+                  stroke-width="1.3"
+                />
+                <text
+                  x="565"
+                  y="71"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="JetBrains Mono"
+                  font-size="9.5"
+                >
+                  Commandes
+                </text>
+                <rect
+                  x="500"
+                  y="98"
+                  width="130"
+                  height="42"
+                  rx="7"
+                  fill="#FFFFFF"
+                  stroke="#B8710C"
+                  stroke-width="1.3"
+                />
+                <text
+                  x="565"
+                  y="123"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="JetBrains Mono"
+                  font-size="9.5"
+                >
+                  Fournisseurs
+                </text>
+                <rect
+                  x="500"
+                  y="150"
+                  width="130"
+                  height="42"
+                  rx="7"
+                  fill="#FFFFFF"
+                  stroke="#B8710C"
+                  stroke-width="1.3"
+                />
+                <text
+                  x="565"
+                  y="175"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="JetBrains Mono"
+                  font-size="9.5"
+                >
+                  DB MySQL
+                </text>
+
+                <path
+                  d="M150 80 L200 115"
+                  stroke="#8B94A0"
+                  stroke-width="1.2"
+                />
+                <path
+                  d="M150 175 L200 145"
+                  stroke="#8B94A0"
+                  stroke-width="1.2"
+                />
+                <path d="M290 105 L340 41" stroke="#8B94A0" stroke-width="1" />
+                <path d="M290 120 L340 93" stroke="#8B94A0" stroke-width="1" />
+                <path d="M290 145 L340 145" stroke="#8B94A0" stroke-width="1" />
+                <path d="M290 160 L340 197" stroke="#8B94A0" stroke-width="1" />
+                <path d="M470 41 L500 67" stroke="#8B94A0" stroke-width="1" />
+                <path d="M470 93 L500 119" stroke="#8B94A0" stroke-width="1" />
+                <path d="M470 145 L500 171" stroke="#8B94A0" stroke-width="1" />
+              </svg>
+            </div>
+
+            <div class="subhead">Modules fonctionnels</div>
+            <div class="stack-grid">
+              <div class="stack-item">
+                <span class="dot"></span>Gestion utilisateurs
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>Produits &amp; catégories
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>Commandes &amp; paiements
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>Fournisseurs
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>Stock &amp; entrepôts
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>Réclamations &amp; support
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>Suivi météo &amp; alertes
+              </div>
+              <div class="stack-item"><span class="dot"></span>Événements</div>
+            </div>
+
+            <div class="subhead">Démarche projet</div>
+            <div class="challenge">
+              <div class="challenge-mark">01</div>
+              <div>
+                <div class="challenge-title">Étude de l'existant</div>
+                <div class="challenge-desc">
+                  Analyse comparative de solutions du marché (ISAGRI, AGRIVI,
+                  AgriWebb) pour en dégager les forces et limites avant
+                  conception.
+                </div>
+              </div>
+            </div>
+            <div class="challenge">
+              <div class="challenge-mark">02</div>
+              <div>
+                <div class="challenge-title">Conception UML</div>
+                <div class="challenge-desc">
+                  Modélisation complète : diagramme de cas d'utilisation par
+                  acteur (client, fournisseur, gérant de stock, responsable
+                  service client, administrateur) et diagramme de classes
+                  d'analyse.
+                </div>
+              </div>
+            </div>
+            <div class="challenge">
+              <div class="challenge-mark">03</div>
+              <div>
+                <div class="challenge-title">Architecture multi-clients</div>
+                <div class="challenge-desc">
+                  Une même API Gateway REST dessert à la fois l'application web
+                  (Symfony) et l'application desktop (JavaFX), garantissant une
+                  logique métier centralisée.
+                </div>
+              </div>
+            </div>
+            <div class="challenge">
+              <div class="challenge-mark">04</div>
+              <div>
+                <div class="challenge-title">Module Gestion des événements</div>
+                <div class="challenge-desc">
+                  Développement de mon module dédié : création, planification et
+                  suivi des événements agricoles (foires, formations, campagnes)
+                  accessibles aux différents acteurs de la plateforme.
+                </div>
+              </div>
+            </div>
+
+            <div class="subhead">Captures d'écran</div>
+            <div class="gallery-container">
+              <div class="gallery-slides" id="gallery-projets-04">
+                <div class="gallery-slide active">
+                  <img
+                    src="images Agriplanner/Captureee 2026-08-17 125604.png"
+                    alt="Vue d'ensemble AgriPlanner"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images Agriplanner/Capture 2026-08-17 125641.png"
+                    alt="Gestion des produits agricoles"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images Agriplanner/Capture  2026-08-17 125700.png"
+                    alt="Espace de gestion des commandes"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images Agriplanner/Capture  2026-08-17 125720.png"
+                    alt="Suivi du stock et des fournisseurs"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images Agriplanner/Capture  2026-08-17 125735.png"
+                    alt="Réclamations et support client"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images Agriplanner/Capture  2026-08-17 125752.png"
+                    alt="Événements agricoles et planification"
+                  />
+                </div>
+              </div>
+              <button
+                class="gallery-nav gallery-prev"
+                onclick="changeSlide(event, -1)"
+              >
+                ‹
+              </button>
+              <button
+                class="gallery-nav gallery-next"
+                onclick="changeSlide(event, 1)"
+              >
+                ›
+              </button>
+              <div class="gallery-counter">
+                <span id="slide-current">1</span>/<span id="slide-total"
+                  >6</span
+                >
+              </div>
+              <div class="gallery-dots">
+                <button
+                  class="gallery-dot active"
+                  onclick="goToSlide(event, 0)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 1)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 2)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 3)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 4)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 5)"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJET 5 : ASSISTANT MOBILITÉ INTERNATIONALE -->
+        <div class="panel project-panel">
+          <div class="panel-head">
+            <span class="dot"></span>projet_05.yml — stage d'ingénieur · esprit,
+            direction des relations externes
+          </div>
+          <div class="panel-body">
+            <div class="project-meta">
+              <span class="project-tag">Solo</span>
+              <span class="chip">Symfony</span>
+              <span class="chip">PHP</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">Doctrine</span>
+              <span class="chip">Ollama (LLM local)</span>
+              <span class="chip">UML</span>
+            </div>
+
+            <p class="project-lede">
+              <strong>Assistant Mobilité Internationale</strong> — application
+              web intelligente développée pour la Direction des Relations
+              Externes d'ESPRIT, afin d'automatiser la réponse aux questions des
+              étudiants sur les programmes de mobilité (Erasmus, double diplôme,
+              stages à l'étranger). Le système combine une
+              <strong>base de connaissances (FAQ)</strong> consultée par
+              similarité sémantique et un <strong>chatbot IA</strong> prenant le
+              relais lorsqu'aucune correspondance directe n'est trouvée, couplé
+              à un backoffice complet de gestion des partenariats et des
+              utilisateurs.
+            </p>
+
+            <div class="subhead">Flux de traitement d'une question</div>
+            <div class="diagram">
+              <svg
+                viewBox="0 0 660 200"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="10"
+                  y="75"
+                  width="120"
+                  height="50"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#CBD2DB"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="70"
+                  y="96"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="11.5"
+                  font-weight="600"
+                >
+                  Étudiant
+                </text>
+                <text
+                  x="70"
+                  y="111"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8"
+                >
+                  Interface chat
+                </text>
+
+                <rect
+                  x="180"
+                  y="75"
+                  width="120"
+                  height="50"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#CBD2DB"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="240"
+                  y="96"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="11.5"
+                  font-weight="600"
+                >
+                  Backend
+                </text>
+                <text
+                  x="240"
+                  y="111"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8"
+                >
+                  Symfony · Doctrine
+                </text>
+
+                <rect
+                  x="350"
+                  y="20"
+                  width="140"
+                  height="50"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#1B9D68"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="420"
+                  y="41"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="11.5"
+                  font-weight="600"
+                >
+                  Base FAQ
+                </text>
+                <text
+                  x="420"
+                  y="56"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8"
+                >
+                  similarité sémantique
+                </text>
+
+                <rect
+                  x="350"
+                  y="130"
+                  width="140"
+                  height="50"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#1B9D68"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="420"
+                  y="151"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="11.5"
+                  font-weight="600"
+                >
+                  Chatbot IA
+                </text>
+                <text
+                  x="420"
+                  y="166"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8"
+                >
+                  Ollama · si question inconnue
+                </text>
+
+                <rect
+                  x="530"
+                  y="75"
+                  width="120"
+                  height="50"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#CBD2DB"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="590"
+                  y="96"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="11.5"
+                  font-weight="600"
+                >
+                  Réponse
+                </text>
+                <text
+                  x="590"
+                  y="111"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8"
+                >
+                  affichée au chat
+                </text>
+
+                <path
+                  d="M130 100 L180 100"
+                  stroke="#8B94A0"
+                  stroke-width="1.2"
+                />
+                <path d="M300 90 L350 55" stroke="#8B94A0" stroke-width="1.2" />
+                <path
+                  d="M300 110 L350 155"
+                  stroke="#8B94A0"
+                  stroke-width="1.2"
+                />
+                <path d="M490 50 L530 90" stroke="#8B94A0" stroke-width="1.2" />
+                <path
+                  d="M490 155 L530 110"
+                  stroke="#8B94A0"
+                  stroke-width="1.2"
+                />
+              </svg>
+            </div>
+
+            <div class="subhead">Démarche projet</div>
+            <div class="challenge">
+              <div class="challenge-mark">01</div>
+              <div>
+                <div class="challenge-title">Analyse des besoins</div>
+                <div class="challenge-desc">
+                  Identification des acteurs (Étudiant, Administrateur,
+                  Chatbot), spécification des besoins fonctionnels et non
+                  fonctionnels, modélisation UML et choix d'une architecture
+                  MVC.
+                </div>
+              </div>
+            </div>
+            <div class="challenge">
+              <div class="challenge-mark">02</div>
+              <div>
+                <div class="challenge-title">Conception</div>
+                <div class="challenge-desc">
+                  Diagramme de classes général (Utilisateur, Question, Réponse,
+                  FAQ, ChatbotIA, Feedback) et diagrammes de séquence système
+                  pour l'authentification et le traitement d'une question.
+                </div>
+              </div>
+            </div>
+            <div class="challenge">
+              <div class="challenge-mark">03</div>
+              <div>
+                <div class="challenge-title">Réalisation</div>
+                <div class="challenge-desc">
+                  Développement du backoffice (gestion des utilisateurs et des
+                  partenariats), de l'espace étudiant et du chatbot avec FAQ
+                  interactives, sur une méthodologie en cascade.
+                </div>
+              </div>
+            </div>
+
+            <div class="subhead">Stack technique</div>
+            <div class="stack-grid">
+              <div class="stack-item"><span class="dot"></span>PHP</div>
+              <div class="stack-item"><span class="dot"></span>Symfony</div>
+              <div class="stack-item"><span class="dot"></span>Composer</div>
+              <div class="stack-item"><span class="dot"></span>Doctrine</div>
+              <div class="stack-item"><span class="dot"></span>MySQL</div>
+              <div class="stack-item"><span class="dot"></span>Ollama</div>
+              <div class="stack-item"><span class="dot"></span>XAMPP</div>
+              <div class="stack-item"><span class="dot"></span>Draw.io</div>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric">
+                <div class="metric-val">3</div>
+                <div class="metric-label">Acteurs identifiés</div>
+              </div>
+              <div class="metric">
+                <div class="metric-val">8</div>
+                <div class="metric-label">Besoins fonctionnels</div>
+              </div>
+              <div class="metric">
+                <div class="metric-val">3‑tiers</div>
+                <div class="metric-label">Architecture déployée</div>
+              </div>
+            </div>
+
+            <div class="subhead">Captures d'écran</div>
+            <div class="gallery-container">
+              <div class="gallery-slides" id="gallery-projets-05">
+                <div class="gallery-slide active">
+                  <img
+                    src="images mobilité internationnale/Capture 2026-08-09 152746.png"
+                    alt="Interface de l'assistant mobilité"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images mobilité internationnale/Capture  2026-08-09 152950.png"
+                    alt="Chatbot de réponse aux questions sur la mobilité"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images mobilité internationnale/Capture 2026-08-09 153114.png"
+                    alt="Backoffice de gestion des étudiants et partenaires"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images mobilité internationnale/Capture 2026-08-09 153143.png"
+                    alt="Gestion des FAQ et des réponses de mobilité"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images mobilité internationnale/Capture  2026-08-09 153240.png"
+                    alt="Gestion des partenariats et des demandes de mobilité"
+                  />
+                </div>
+              </div>
+              <button
+                class="gallery-nav gallery-prev"
+                onclick="changeSlide(event, -1)"
+              >
+                ‹
+              </button>
+              <button
+                class="gallery-nav gallery-next"
+                onclick="changeSlide(event, 1)"
+              >
+                ›
+              </button>
+              <div class="gallery-counter">
+                <span id="slide-current">1</span>/<span id="slide-total"
+                  >5</span
+                >
+              </div>
+              <div class="gallery-dots">
+                <button
+                  class="gallery-dot active"
+                  onclick="goToSlide(event, 0)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 1)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 2)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 3)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 4)"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJET 6 : GESTION ASSETS & CONTRATS BCT -->
+        <div class="panel project-panel">
+          <div class="panel-head">
+            <span class="dot"></span>projet_06.yml — stage pfe · banque centrale
+            de tunisie
+          </div>
+          <div class="panel-body">
+            <div class="project-meta">
+              <span class="chip">Angular</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip">Java</span>
+              <span class="chip">Spring Boot</span>
+              <span class="chip">Kotlin</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">Scrum</span>
+              <span class="chip">UML</span>
+            </div>
+
+            <p class="project-lede">
+              Application web de
+              <strong>gestion des assets et des contrats</strong> développée
+              pour la Direction Générale des Systèmes d'Information de la Banque
+              Centrale de Tunisie, en remplacement d'un suivi manuel sur
+              feuilles de calcul et dossiers physiques. La plateforme centralise
+              la gestion des fournisseurs, des actifs (équipements, logiciels,
+              services) et de leurs contrats associés, complétée par une
+              <strong>application mobile Android</strong> de lecture de QR code
+              permettant de vérifier l'authenticité d'un contrat auprès de la
+              plateforme interne « Elise ».
+            </p>
+
+            <div class="team-note">
+              <span
+                >Mon rôle :
+                <strong>conception, design et développement</strong>.
+                Méthodologie <strong>Scrum</strong> sur 3 sprints (4 semaines
+                chacun) — rôles Product Owner / Scrum Master / équipe de
+                développement, product backlog de 34 user stories.</span
+              >
+            </div>
+
+            <div class="subhead">Architecture</div>
+            <div class="diagram">
+              <svg
+                viewBox="0 0 660 210"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="10"
+                  y="20"
+                  width="140"
+                  height="55"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#CBD2DB"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="80"
+                  y="43"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="12"
+                  font-weight="600"
+                >
+                  Client web
+                </text>
+                <text
+                  x="80"
+                  y="59"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8.5"
+                >
+                  Angular · TypeScript
+                </text>
+
+                <rect
+                  x="10"
+                  y="135"
+                  width="140"
+                  height="55"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#CBD2DB"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="80"
+                  y="158"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="12"
+                  font-weight="600"
+                >
+                  App mobile
+                </text>
+                <text
+                  x="80"
+                  y="174"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8.5"
+                >
+                  Kotlin · scan QR
+                </text>
+
+                <rect
+                  x="255"
+                  y="78"
+                  width="150"
+                  height="55"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#1B9D68"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="330"
+                  y="101"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="12.5"
+                  font-weight="600"
+                >
+                  Serveur applicatif
+                </text>
+                <text
+                  x="330"
+                  y="118"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8.5"
+                >
+                  Java · MVC · Apache
+                </text>
+
+                <rect
+                  x="500"
+                  y="20"
+                  width="150"
+                  height="55"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#CBD2DB"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="575"
+                  y="43"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="12"
+                  font-weight="600"
+                >
+                  PostgreSQL
+                </text>
+                <text
+                  x="575"
+                  y="59"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8.5"
+                >
+                  Fournisseurs · Assets · Contrats
+                </text>
+
+                <rect
+                  x="500"
+                  y="135"
+                  width="150"
+                  height="55"
+                  rx="8"
+                  fill="#FFFFFF"
+                  stroke="#B8710C"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="575"
+                  y="158"
+                  text-anchor="middle"
+                  fill="#14181F"
+                  font-family="Space Grotesk"
+                  font-size="12"
+                  font-weight="600"
+                >
+                  Plateforme Elise
+                </text>
+                <text
+                  x="575"
+                  y="174"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8.5"
+                >
+                  vérification d'authenticité
+                </text>
+
+                <path d="M150 48 L255 95" stroke="#8B94A0" stroke-width="1.2" />
+                <path
+                  d="M150 162 L255 115"
+                  stroke="#8B94A0"
+                  stroke-width="1.2"
+                />
+                <path d="M405 95 L500 48" stroke="#8B94A0" stroke-width="1.2" />
+                <path
+                  d="M405 115 L500 162"
+                  stroke="#8B94A0"
+                  stroke-width="1.2"
+                />
+                <text
+                  x="200"
+                  y="66"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8"
+                >
+                  HTTP
+                </text>
+                <text
+                  x="455"
+                  y="66"
+                  text-anchor="middle"
+                  fill="#8B94A0"
+                  font-family="JetBrains Mono"
+                  font-size="8"
+                >
+                  TCP/IP
+                </text>
+              </svg>
+            </div>
+
+            <div class="subhead">Défis techniques résolus</div>
+            <div class="challenge">
+              <div class="challenge-mark">01</div>
+              <div>
+                <div class="challenge-title">
+                  Centralisation d'une gestion jusque-là manuelle
+                </div>
+                <div class="challenge-desc">
+                  Conception d'un modèle de données unique regroupant
+                  fournisseurs, actifs hétérogènes (équipements, logiciels,
+                  services) et contrats liés, en remplacement de fichiers Excel
+                  et de dossiers papier dispersés.
+                </div>
+              </div>
+            </div>
+            <div class="challenge">
+              <div class="challenge-mark">02</div>
+              <div>
+                <div class="challenge-title">Découpage Scrum en 3 sprints</div>
+                <div class="challenge-desc">
+                  Planification et livraison itérative : authentification,
+                  fournisseurs et assets (sprint 1) ; contrats et utilisateurs
+                  (sprint 2) ; profil, dashboard et application mobile (sprint
+                  3).
+                </div>
+              </div>
+            </div>
+            <div class="challenge">
+              <div class="challenge-mark">03</div>
+              <div>
+                <div class="challenge-title">
+                  Vérification d'authenticité par QR code
+                </div>
+                <div class="challenge-desc">
+                  Développement d'une application Android autonome scannant le
+                  QR code d'un contrat et transférant le document vers la
+                  plateforme « Elise » pour confirmer son authenticité.
+                </div>
+              </div>
+            </div>
+
+            <div class="subhead">Stack technique</div>
+            <div class="stack-grid">
+              <div class="stack-item"><span class="dot"></span>Angular</div>
+              <div class="stack-item"><span class="dot"></span>TypeScript</div>
+              <div class="stack-item"><span class="dot"></span>Java</div>
+              <div class="stack-item"><span class="dot"></span>Spring Boot</div>
+              <div class="stack-item">
+                <span class="dot"></span>Kotlin / Android Studio
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>PostgreSQL / pgAdmin
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>Architecture MVC
+              </div>
+              <div class="stack-item">
+                <span class="dot"></span>UML / Draw.io
+              </div>
+              <div class="stack-item"><span class="dot"></span>Scrum</div>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric">
+                <div class="metric-val">3</div>
+                <div class="metric-label">Sprints Scrum</div>
+              </div>
+              <div class="metric">
+                <div class="metric-val">34</div>
+                <div class="metric-label">User stories</div>
+              </div>
+              <div class="metric">
+                <div class="metric-val">3</div>
+                <div class="metric-label">Rôles utilisateurs</div>
+              </div>
+            </div>
+
+            <div class="subhead">Captures d'écran</div>
+            <div class="gallery-container">
+              <div class="gallery-slides" id="gallery-projets-06">
+                <div class="gallery-slide active">
+                  <img
+                    src="images de l application de banque centrale/Capture 2026-08-09 143941.png"
+                    alt="Tableau de bord de gestion des assets"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images de l application de banque centrale/Capture  2026-08-09 144003.png"
+                    alt="Gestion des fournisseurs et contrats"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images de l application de banque centrale/Capture 2026-08-09 144024.png"
+                    alt="Vue détaillée d'un contrat"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images de l application de banque centrale/Capture 2026-08-09 144848.png"
+                    alt="Suivi des actifs de la banque"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images de l application de banque centrale/Capture2026-08-09 145041.png"
+                    alt="Interface de consultation de l'inventaire"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images de l application de banque centrale/Capture 2026-08-09 145118.png"
+                    alt="Vue de gestion des demandes internes"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images de l application de banque centrale/Capture  2026-08-09 145223.png"
+                    alt="Application mobile de validation QR"
+                  />
+                </div>
+                <div class="gallery-slide">
+                  <img
+                    src="images de l application de banque centrale/Capture 2026-08-09 145306.png"
+                    alt="Vérification d'authenticité via QR code"
+                  />
+                </div>
+              </div>
+              <button
+                class="gallery-nav gallery-prev"
+                onclick="changeSlide(event, -1)"
+              >
+                ‹
+              </button>
+              <button
+                class="gallery-nav gallery-next"
+                onclick="changeSlide(event, 1)"
+              >
+                ›
+              </button>
+              <div class="gallery-counter">
+                <span id="slide-current">1</span>/<span id="slide-total"
+                  >8</span
+                >
+              </div>
+              <div class="gallery-dots">
+                <button
+                  class="gallery-dot active"
+                  onclick="goToSlide(event, 0)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 1)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 2)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 3)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 4)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 5)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 6)"
+                ></button>
+                <button
+                  class="gallery-dot"
+                  onclick="goToSlide(event, 7)"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <div class="sec-title-row">
+          <span class="sec-num">03</span>
+          <h2 class="sec-title">Expérience</h2>
+          <div class="sec-rule"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span class="dot"></span>experience.log</div>
+          <div class="panel-body" style="padding-top: 6px; padding-bottom: 6px">
+            <div class="tl-item">
+              <div class="tl-date">Juin 2026 — Août 2026</div>
+              <div>
+                <div class="tl-role">
+                  Stage d'été — Infrastructure &amp; Supervision
+                </div>
+                <div class="tl-org">Data Center Carthage, Tunisie Telecom</div>
+                <div class="tl-desc">
+                  Conception et déploiement d'une plateforme de supervision
+                  Prometheus/Grafana pour serveurs et équipements réseau (voir
+                  Projet 01).
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-date">Juil. — Août 2025</div>
+              <div>
+                <div class="tl-role">Stage d'été — Développement Web</div>
+                <div class="tl-org">
+                  ESPRIT, Direction des Relations Externes
+                </div>
+                <ul class="tl-desc">
+                  <li>
+                    Analyse des besoins et conception d'une application web de
+                    réponse automatique aux questions liées à la mobilité
+                    internationale
+                  </li>
+                  <li>
+                    Développement des fonctionnalités de traitement et
+                    d'automatisation des réponses
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-date">Fév. — Mai 2024</div>
+              <div>
+                <div class="tl-role">Stage PFE — Application de Gestion</div>
+                <div class="tl-org">Banque Centrale de Tunisie</div>
+                <ul class="tl-desc">
+                  <li>
+                    Analyse des besoins et conception de l'architecture
+                    applicative
+                  </li>
+                  <li>
+                    Développement d'une application web de gestion des contrats
+                    et actifs, et d'une application Android pour la lecture et
+                    validation de QR codes (voir Projet 06)
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-date">Juillet 2023</div>
+              <div>
+                <div class="tl-role">Stage d'été — Cloudshift</div>
+                <div class="tl-org">Les Berges du Lac</div>
+                <ul class="tl-desc">
+                  <li>Création et configuration de machines virtuelles</li>
+                  <li>
+                    Gestion des appareils et applications avec Microsoft Intune
+                  </li>
+                  <li>
+                    Mise en place et application de politiques de sécurité
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMATION -->
+      <section id="formation">
+        <div class="sec-title-row">
+          <span class="sec-num">04</span>
+          <h2 class="sec-title">Formation</h2>
+          <div class="sec-rule"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span class="dot"></span>formation.log</div>
+          <div class="panel-body" style="padding-top: 6px; padding-bottom: 6px">
+            <div class="tl-item">
+              <div class="tl-date">2024 — Présent</div>
+              <div>
+                <div class="tl-role">Cycle Ingénieur en Informatique</div>
+                <div class="tl-org">
+                  École Supérieure Privée d'Ingénierie et de Technologies
+                  (ESPRIT) — Tunis
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-date">2021 — 2024</div>
+              <div>
+                <div class="tl-role">Licence en Informatique et Multimédia</div>
+                <div class="tl-org">
+                  Institut Supérieur d'Informatique et des Technologies de
+                  Communication (ISITCOM) — Hammam Sousse
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-date">2020 — 2021</div>
+              <div>
+                <div class="tl-role">Baccalauréat en Informatique</div>
+                <div class="tl-org">Lycée Secondaire Bouargoub — Nabeul</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPETENCES -->
+      <section id="competences">
+        <div class="sec-title-row">
+          <span class="sec-num">05</span>
+          <h2 class="sec-title">Compétences</h2>
+          <div class="sec-rule"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span class="dot"></span>skills.json</div>
+          <div class="panel-body">
+            <div class="skill-cols">
+              <div>
+                <div class="skill-group-label">
+                  Cloud, DevOps &amp; Systèmes
+                </div>
+                <div class="skill-list">
+                  <span class="skill-pill"
+                    >Cloud Computing (OpenStack / Azure)</span
+                  >
+                  <span class="skill-pill">Docker &amp; Kubernetes</span>
+                  <span class="skill-pill">Prometheus, Grafana</span>
+                  <span class="skill-pill">Linux / Administration système</span>
+                  <span class="skill-pill">Virtualisation (VMware)</span>
+                  <span class="skill-pill">Réseaux informatiques</span>
+                  <span class="skill-pill">Ansible</span>
+                  <span class="skill-pill">Git / GitHub</span>
+                </div>
+              </div>
+              <div>
+                <div class="skill-group-label">Développement &amp; Data</div>
+                <div class="skill-list">
+                  <span class="skill-pill">Java / Spring Boot</span>
+                  <span class="skill-pill">Angular</span>
+                  <span class="skill-pill">Symfony</span>
+                  <span class="skill-pill">MySQL</span>
+                  <span class="skill-pill">Python</span>
+                  <span class="skill-pill">Machine Learning</span>
+                  <span class="skill-pill">Méthode agile — Scrum</span>
+                </div>
+              </div>
+              <div>
+                <div class="skill-group-label">Outils &amp; Langues</div>
+                <div class="skill-list">
+                  <span class="skill-pill">IntelliJ IDEA</span>
+                  <span class="skill-pill">VMware Workstation</span>
+                  <span class="skill-pill">Google Colab</span>
+                  <span class="skill-pill">VS Code</span>
+                  <span class="skill-pill">Arabe — natif</span>
+                  <span class="skill-pill">Français — B2</span>
+                  <span class="skill-pill">Anglais — B2</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="tight">
+        <div class="sec-title-row">
+          <span class="sec-num">06</span>
+          <h2 class="sec-title">Contact</h2>
+          <div class="sec-rule"></div>
+        </div>
+        <div class="panel contact-panel">
+          <h2>Recherche stage PFE — Janvier 2027</h2>
+          <p>Ouverte à toutes les opportunités. Discutons de votre projet.</p>
+          <div class="contact-links">
+            <a href="mailto:nesrinelamine2022@gmail.com" class="btn btn-primary"
+              >✉ nesrinelamine2022@gmail.com</a
+            >
+            <a href="tel:+21699200145" class="btn btn-ghost"
+              >📞 +216 99 200 145</a
+            >
+            <a
+              href="https://linkedin.com/in/nesrine-lamine-467043251"
+              class="btn btn-ghost"
+              >LinkedIn</a
+            >
+            <a href="https://github.com/nesrinelamine" class="btn btn-ghost"
+              >GitHub</a
+            >
+          </div>
+          <div class="placeholder-note" style="color: var(--text-faint)">
+            📍 Tunis, Tunisie
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>© 2026 Nesrine Lamine — Portfolio de candidature</span>
+        <span>Dernière mise à jour : Août 2026</span>
+      </div>
+    </footer>
+
+    <script>
+      let currentSlides = {};
+
+      function initGallery(galleryId, totalSlides) {
+        currentSlides[galleryId] = 0;
+        updateGallery(galleryId, totalSlides);
+      }
+
+      function changeSlide(event, direction) {
+        const gallery = event.target.closest(".gallery-container");
+        const galleryId = gallery.querySelector(".gallery-slides").id;
+        const slides = gallery.querySelectorAll(".gallery-slide");
+        const totalSlides = slides.length;
+
+        currentSlides[galleryId] =
+          (currentSlides[galleryId] + direction + totalSlides) % totalSlides;
+        updateGallery(galleryId, totalSlides);
+      }
+
+      function goToSlide(event, index) {
+        const container = event.target.closest(".gallery-container");
+        const gallery = container.querySelector(".gallery-slides");
+        const galleryId = gallery.id;
+        const slides = gallery.querySelectorAll(".gallery-slide");
+        const totalSlides = slides.length;
+
+        if (index < totalSlides) {
+          currentSlides[galleryId] = index;
+          updateGallery(galleryId, totalSlides);
+        }
+      }
+
+      function updateGallery(galleryId, totalSlides) {
+        const gallery = document.getElementById(galleryId);
+        const slides = gallery.querySelectorAll(".gallery-slide");
+        const container = gallery.closest(".gallery-container");
+        const dots = container.querySelectorAll(".gallery-dot");
+        const currentIndex = currentSlides[galleryId];
+
+        // Hide all slides
+        slides.forEach((slide) => slide.classList.remove("active"));
+        // Show current slide
+        slides[currentIndex].classList.add("active");
+
+        // Update dots
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle("active", idx === currentIndex);
+        });
+
+        // Update counter
+        const counter = container.querySelector("#slide-current");
+        if (counter) {
+          counter.textContent = currentIndex + 1;
+        }
+      }
+
+      // Initialize galleries on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        const galleries = document.querySelectorAll(".gallery-slides");
+        galleries.forEach((gallery) => {
+          const totalSlides = gallery.querySelectorAll(".gallery-slide").length;
+          initGallery(gallery.id, totalSlides);
+        });
+      });
+    </script>
+  </body>
+</html>
